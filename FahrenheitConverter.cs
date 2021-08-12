@@ -11,19 +11,41 @@ namespace H1MethodTry
         //Method input
         public void InputMethod()
         {
+
             int result = 0;
+            string Choice1;
             bool canItConvert = false;
+            bool repeat = false;
             do
             {
-                Console.WriteLine("*** Fahrenheit omregner ***");
-                Console.WriteLine("Input Fahrenheit:");
-                string str = Console.ReadLine();
-                canItConvert = int.TryParse(str, out result);
-            }
-            while (!canItConvert);
+                do
+                {
+                    Console.WriteLine("*** Fahrenheit omregner ***");
+                    Console.WriteLine("Input Fahrenheit:");
+                    string str = Console.ReadLine();
+                    canItConvert = int.TryParse(str, out result);
+                }
+                while (!canItConvert);
 
-            double c = ConversionMethod(result);
-            OutputMethod(c);
+                double c = ConversionMethod(result);
+                OutputMethod(c);
+
+                Console.WriteLine("Press 1 to quit");// try again \nPress 2 to End program");
+                Choice1 = Console.ReadLine();
+                if (Choice1 == "1")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+                //else
+                //{
+                //    Console.WriteLine("Input valid key");
+                //}
+
+            } while (!repeat);
         }
 
 
@@ -42,7 +64,7 @@ namespace H1MethodTry
         }
         void OutputMethod(double cel)
         {
-            Console.WriteLine("F to C " + cel);
+            Console.WriteLine("This is the Farenheit in Celsius: " + cel);
         }
 
 
